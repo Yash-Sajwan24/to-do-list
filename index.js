@@ -1,23 +1,20 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
+
+const date = require(__dirname + '/getdate.js');
+
 const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
+
 let task = ["wake up early", "go to gym"];
 let worklist = ["study", "make notes"];
 
 app.get('/', function(req, res){
-    let date = new Date();
-    const options = {
-        weekday: 'long',    
-        day: 'numeric', 
-        month: 'long', 
-    }
-    let val = date.toLocaleDateString('en-US', options) ;   
-
+    let val = date();
     res.render('list', {dayToday: val, itemAdded: task});
 })
 
