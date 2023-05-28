@@ -14,7 +14,7 @@ let task = ["wake up early", "go to gym"];
 let worklist = ["study", "make notes"];
 
 app.get('/', function(req, res){
-    let val = date();
+    let val = date.getDay();
     res.render('list', {dayToday: val, itemAdded: task});
 })
 
