@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('public'));
 
 let task = ["wake up early", "go to gym"];
 
@@ -14,13 +15,16 @@ app.get('/', function(req, res){
         day: 'numeric', 
         month: 'long', 
     }
-    let val = date.toLocaleDateString('en-US', options) ;
+    let val = date.toLocaleDateString('en-US', options) ;   
 
     res.render('list', {dayToday: val, itemAdded: task});
 })
 
 app.post('/', function(req, res){
-    task.push(req.body.task);
+    let inputValue = req.body.task;
+    if(inputValue.trim()!== ""){
+        task.push(inputValue);
+    }
     res.redirect('/');
 })
 
