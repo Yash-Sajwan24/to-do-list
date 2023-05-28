@@ -14,6 +14,17 @@
   <% }else{ %> 
     <h1 style="background-color: orange;">Today is <%= dayToday %> !</h1>
   <% } %> 
+
+  <ul>
+    <% for(let i =0;i< itemAdded.length;i++){ %> 
+      <li><%= itemAdded[i] %></li>
+    <% } %> 
+  </ul>
+  <form action="/" method="post">
+    <input name="task" type="text">
+  <button type="submit">Add items</button>
+  </form>
+  
   
 </body>
 </html>
