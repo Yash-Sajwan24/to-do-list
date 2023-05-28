@@ -10,11 +10,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 
-let task = ["wake up early", "go to gym"];
-let worklist = ["study", "make notes"];
+const task = ["wake up early", "go to gym"];
+const worklist = ["study", "make notes"];
 
 app.get('/', function(req, res){
-    let val = date.getDay();
+    const val = date.getDay();
     res.render('list', {dayToday: val, itemAdded: task});
 })
 
@@ -30,7 +30,7 @@ app.post('/', function(req, res){
 })
 
 app.get('/work', function(req, res){
-    let val = "Work List";
+    const val = "Work List";
     res.render('list', {dayToday:val, itemAdded: worklist });
     
 })

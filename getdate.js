@@ -1,25 +1,27 @@
 
-module.exports.getDate = getDate;
-module.exports.getDay = getDay;
-
-function getDate(){
-    let date = new Date();
+//instead of module.exports we can use exports only
+exports.getDate = function(){
+    const date = new Date();
     const options = {
         weekday: 'long',    
         day: 'numeric', 
         month: 'long', 
     }
-    let val = date.toLocaleDateString('en-US', options) ;   
-    return val;
+    return date.toLocaleDateString('en-US', options) ;   
+    
 }
 
-function getDay(){
-    let date = new Date();
+exports.getDay = function (){
+    const date = new Date();
     const options = {
         weekday: 'long',
     }
-    let val = date.toLocaleDateString('en-US', options) ;   
-    return val;
+    return date.toLocaleDateString('en-US', options) ;   
+    
 }
+
+
+
+
 
 
