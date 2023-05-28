@@ -11,7 +11,7 @@ let task = ["wake up early", "go to gym"];
 app.get('/', function(req, res){
     let date = new Date();
     const options = {
-        weekday: 'long', 
+        weekday: 'long',    
         day: 'numeric', 
         month: 'long', 
     }
@@ -21,10 +21,7 @@ app.get('/', function(req, res){
 })
 
 app.post('/', function(req, res){
-    let inputValue = req.body.task;
-    if(inputValue.trim()!== ""){
-        task.push(inputValue);
-    }
+    task.push(req.body.task);
     res.redirect('/');
 })
 

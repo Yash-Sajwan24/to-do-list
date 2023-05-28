@@ -1,3 +1,17 @@
 body{
     background-color: pink;
+    text-align: center;
+}
+
+.container{
+    background-color: yellow;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    text-align: left;
+    padding: 10px;
+}
+
+input:checked + span{
+    text-decoration: line-through;
 }
