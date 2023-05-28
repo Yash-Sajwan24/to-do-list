@@ -7,6 +7,13 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Today is <%= dayToday %> !</h1>
+  <!-- I will make all the non html code in between <% %> (each line) -->
+
+  <% if( dayToday === 'Saturday' || dayToday === 'Sunday'){ %> 
+    <h1 style="background-color: yellow;">Today is <%= dayToday %> !</h1>
+  <% }else{ %> 
+    <h1 style="background-color: orange;">Today is <%= dayToday %> !</h1>
+  <% } %> 
+  
 </body>
 </html>
