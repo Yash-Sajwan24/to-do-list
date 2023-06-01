@@ -10,10 +10,10 @@
   <% } %> 
 
     <div class="container">
-      <% for(let i =0;i< itemAdded.length;i++){ %> 
-        
-        <p><input type="checkbox" > <span><%= itemAdded[i] %></span></p>
-      <% } %> 
+      <% itemAdded.forEach((item) => { %>
+        <p><input type="checkbox" > <span><%= item.name %></span></p>
+      <% }) %>
+
     </div>
 
     
