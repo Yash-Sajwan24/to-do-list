@@ -11,7 +11,9 @@
 
     <div class="container">
       <% itemAdded.forEach((item) => { %>
-        <p><input type="checkbox" > <span><%= item.name %></span></p>
+        <form action="/delete" method="post">
+          <p><input name="itemDelete" type="checkbox" onchange="this.form.submit()" value=<%= item.id %>> <span><%= item.name %></span></p>
+        </form>
       <% }) %>
 
     </div>

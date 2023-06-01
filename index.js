@@ -11,8 +11,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-
-// const task = ["wake up early", "go to gym"];
 // const worklist = ["study", "make notes"]; 
 
 
@@ -29,6 +27,16 @@ app.get('/', function(req, res){
     }).catch(function(error){
         console.log(error);
     })
+})
+
+app.post('/delete', function(req, res){
+    //for it to find and delete by id it must have a callback function
+    listModel.findByIdAndDelete({_id:req.body.itemDelete }).then(function(){
+        
+    }).catch(function(error){
+        console.log(error);
+    })
+    res.redirect('/');
 })
 
 app.post('/', function(req, res){
