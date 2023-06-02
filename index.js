@@ -11,7 +11,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-// const worklist = ["study", "make notes"]; 
 
 
 const listSchema = new mongoose.Schema({
@@ -20,6 +19,10 @@ const listSchema = new mongoose.Schema({
 
 const listModel = mongoose.model("Task", listSchema);
 
+const newItem = new listModel({
+    name: "hello",
+})
+
 app.get('/', function(req, res){
     // const val = date.getDay();
     listModel.find({}).then(function(items){
@@ -27,6 +30,34 @@ app.get('/', function(req, res){
     }).catch(function(error){
         console.log(error);
     })
+})
+
+const linkSchema = mongoose.Schema({
+    name: String, 
+    items: [listSchema],
+});
+
+const linkModel = new mongoose.model("Link", linkSchema);
+
+app.get("/:customListName", function(req, res){
+    const custom = req.params.customListName;//params if syntax
+
+    //find return an array whereas the findOne return an obj if exists
+    linkModel.findOne({name: custom}).then(function(result){
+        if(result){
+            res.render('list', {dayToday: result.name, itemAdded: result.items});
+        }
+        else{
+            const item = new linkModel({
+                name: custom,
+                items: [],
+            })
+            item.save();
+            res.redirect('/' + custom);
+        }
+    }).catch((err) => console.log(err));
+
+    
 })
 
 app.post('/delete', function(req, res){
