@@ -1,15 +1,94 @@
 body{
-    background-color: pink;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.card{
+    margin: 0 auto;
+    width: 60%;
+    height: 500px;
+    position: fixed;
+    top:30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.heading{
     text-align: center;
+    font-size: 20px;
+}
+
+.bg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-size: cover;
 }
 
 .container{
-    background-color: yellow;
-    height: 400px;
-    width: 400px;
+    z-index: 1;
+    background-color: white;
+    border-radius: 25px;
+    border: 5px solid white;
+    height: 500px;
     margin: auto;
     text-align: left;
-    padding: 10px;
+    padding: 20px;
+    overflow: auto;
+    font-size: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.addingTask{
+    text-align: center;
+    background-color: #386bff;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.addingTask .input{
+    font-size: 20px;
+    padding:10px;
+    margin: 20px ;
+    border-radius: 20px;
+    width: 50%;
+}
+
+.addingTask .btn{
+    background-color: #cdf0ff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.checkbox{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.checkbox::after{
+    content: "X";
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 2.5px;
+}
+
+
+
+.displayItem{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: 20px;
 }
 
 input:checked + span{

@@ -2,30 +2,42 @@
 <%- include('header') -%> 
 
   <!-- I will make all the non html code in between <% %> (each line) -->
-
-  <% if( dayToday === 'Saturday' || dayToday === 'Sunday'){ %> 
-    <h1 style="background-color: yellow;"> <%= dayToday %> !</h1>
-  <% }else{ %> 
-    <h1 style="background-color: orange;"> <%= dayToday %> !</h1>
-  <% } %> 
+  <div class="bg">
+    <lottie-player  src="https://assets1.lottiefiles.com/packages/lf20_MeqoKT7pCm.json" mode="bounce" background="transparent"  speed="1"  style="width: 100%;height: 100%;"  loop  autoplay></lottie-player>
+  </div>
+ 
+  <div class="card">
+   <div class="heading">
+    <% if( dayToday === 'Saturday' || dayToday === 'Sunday'){ %> 
+      <h1> <%= dayToday %> !</h1>
+    <% }else{ %> 
+      <h1 > <%= dayToday %> !</h1>
+    <% } %>
+   </div>
+ 
 
     <div class="container">
       <% itemAdded.forEach((item) => { %>
         <form action="/delete" method="post">
-          <p><input name="itemDelete" type="checkbox" onchange="this.form.submit()" value=<%= item.id %>> <span><%= item.name %></span></p>
-          <!-- this is hidden  -->
-          <input type="hidden" name="deleteItem" value=<%= dayToday %>  > 
+          <div class="displayItem">
+            <input id="check" class="checkbox" name="itemDelete" type="checkbox" onchange="this.form.submit()" value=<%= item.id %>> <label for="check"><span><%= item.name %></span></label>
+            <!-- this is hidden  -->
+            <input type="hidden" name="deleteItem" value=<%= dayToday %>  > 
+
+          </div>
+         
 
         </form>
       <% }) %>
 
     </div>
 
-    
 
-  <form action="/" method="post">
-    <input name="task" type="text" placeholder="enter the task" autocomplete="off" required>
-  <button type="submit" name="submitbutton" value=<%= dayToday %>>Add items</button>
+
+  <form action="/" method="post" class="addingTask">
+    <input class="input" name="task" type="text" placeholder="enter the task" autocomplete="off" required>
+  <button class="btn" type="submit" name="submitbutton" value=<%= dayToday %>>Add Item</button>
   </form>
   
+</div>
 <%- include('footer') -%> 
