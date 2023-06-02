@@ -19,9 +19,6 @@ const listSchema = new mongoose.Schema({
 
 const listModel = mongoose.model("Task", listSchema);
 
-const newItem = new listModel({
-    name: "hello",
-})
 
 app.get('/', function(req, res){
     // const val = date.getDay();
@@ -71,16 +68,23 @@ app.post('/delete', function(req, res){
 })
 
 app.post('/', function(req, res){
-    if(req.body.submitbutton === "Work"){
-        worklist.push(req.body.task);
-        res.redirect('/work');
-    }
-    else{
-        const temp = new listModel({
-            name: req.body.task,
-        })
+    const item = req.body.task;//input field
+    const route = req.body.submitbutton;//submit button
+
+    const temp = new listModel({
+        name: item,
+    })
+
+    if(route === "Today"){
         listModel.insertMany([temp]);
         res.redirect('/');
+    }
+    else{
+        linkModel.findOne({name: route}).then(function(result){
+            result.items.push(temp);
+            result.save();
+            res.redirect('/' + route);
+        })
     }
 })
 
@@ -90,9 +94,6 @@ app.get('/work', function(req, res){
     
 })
 
-app.get('/about', function(req, res){
-    res.render('about');
-})
 
 
 app.listen(process.env.PORT || 3000, function(){
