@@ -17,12 +17,27 @@ const listSchema = new mongoose.Schema({
 
 const listModel = mongoose.model("Task", listSchema);
 
+
+const item1 = new listModel({
+  name: "Enter the task and click on 'Add Item'",
+})
+const item2 = new listModel({
+  name: "<-- click on the cross button to delete the task",
+})
+
 app.get("/", function (req, res) {
   // const val = date.getDay();
   listModel
     .find({})
     .then(function (items) {
-      res.render("list", { dayToday: "Today", itemAdded: items });
+      if(items.length === 0){
+        listModel.insertMany([item1,item2]).then(function(){}).catch((error)=> console.log(error));
+        res.redirect('/');
+      }
+      else{
+        res.render("list", { dayToday: "Today", itemAdded: items });
+      }
+     
     })
     .catch(function (error) {
       console.log(error);
@@ -48,7 +63,7 @@ app.get("/:customListName", function (req, res) {
       } else {
         const item = new linkModel({
           name: custom,
-          items: [],
+          items: [item1, item2],
         });
         item.save();
         res.redirect("/" + custom);
