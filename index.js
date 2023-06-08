@@ -4,7 +4,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 // const date = require(__dirname + '/getdate.js');
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
+// mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
+mongoose.connect("mongodb+srv://yashsajwan12345:yashsajwan@cluster0.if6qlcb.mongodb.net/todolistDB");
+
 
 const app = express();
 app.set("view engine", "ejs");

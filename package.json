@@ -5,5 +5,16 @@
     "express": "^4.18.2",
     "mongoose": "^7.2.2",
     "request": "^2.88.2"
-  }
+  },
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "node index.js"
+  },
+  "author": "yash",
+  "license": "ISC",
+  "description": ""
 }
