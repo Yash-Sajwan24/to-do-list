@@ -112,7 +112,11 @@ app.post("/", function (req, res) {
   });
 
   if (route === "Today") {
-    listModel.insertMany([temp]).then(res.redirect("/")); 
+    listModel.insertMany([temp]).then(
+      setTimeout(() => {
+        res.redirect("/");
+      } , 100)
+    ); 
     
   } else {
     linkModel.findOne({ name: route }).then(function (result) {
