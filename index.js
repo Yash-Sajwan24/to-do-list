@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 
 // const date = require(__dirname + '/getdate.js');
 // mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
-mongoose.connect("mongodb+srv://yashsajwan12345:yashsajwan@cluster0.if6qlcb.mongodb.net/todolistDB");
+// mongoose.connect("mongodb+srv://yashsajwan12345:yashsajwan@cluster0.if6qlcb.mongodb.net/todolistDB");
+mongoose.connect("mongodb+srv://yashsajwan12345:LoYgPGFhtXfQqOxg@cluster0.if6qlcb.mongodb.net/todolistDB");
 
 
 const app = express();
@@ -111,8 +112,8 @@ app.post("/", function (req, res) {
   });
 
   if (route === "Today") {
-    listModel.insertMany([temp]);
-    res.redirect("/");
+    listModel.insertMany([temp]).then(res.redirect("/")); 
+    
   } else {
     linkModel.findOne({ name: route }).then(function (result) {
       result.items.push(temp);
