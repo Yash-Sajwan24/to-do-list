@@ -17,3 +17,38 @@ https://github.com/Yash-Sajwan24/to-do-list/assets/52412969/a9f759f7-f689-4e46-a
 
 Node.js, Express.js, MongoDB, EJS, Mongoose, CSS
 
+
+
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- [NodeJs](https://nodejs.org/en/download/)
+
+
+### Build and Run Locally
+
+
+
+
+
+
+Clone the project
+```bash
+  git clone https://github.com/Yash-Sajwan24/to-do-list.git
+```
+
+Go to the project directory
+
+```bash
+  cd to-do-list
+```
+Start the server 
+
+```bash
+  node index.js
+```
+
