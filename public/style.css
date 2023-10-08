@@ -14,22 +14,25 @@ body{
     transform: translate(-50%, -50%);
 }
 .heading{
-    margin-top: 10%;
+    margin-top: 80px;
     text-align: center;
     font-size: 20px;
+    background-color: yellow;
+    border-radius: 20px;
 }
 
 .bg{
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: -1;
+    background: url('./ll.jpg');
+    height: 100%;
+    width: 100%;
     background-size: cover;
+    position: absolute;
 }
 
 .container{
     z-index: 1;
-    background-color: white;
+    background-color: #9d80cb;
+    opacity: 0.99;
     border-radius: 25px;
     border: 5px solid white;
     height: 70%;
@@ -43,7 +46,7 @@ body{
 
 .addingTask{
     text-align: center;
-    background-color: #386bff;
+    background-color: #9d80cb;
     margin-top: 20px;
     border-radius: 20px;
     display: flex;
@@ -92,6 +95,22 @@ body{
     font-size: 20px;
 }
 
+.displayItem label{
+    cursor: pointer;
+}
+
 input:checked + span{
     text-decoration: line-through;
+}
+
+
+@media only screen and (max-width: 700px){
+    label{
+        font-size: 15px;
+    }
+    .addingTask .btn{
+        font-size: 12px;
+    }
+
+    
 }

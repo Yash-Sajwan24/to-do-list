@@ -3,7 +3,7 @@
 
   <!-- I will make all the non html code in between <% %> (each line) -->
   <div class="bg">
-    <lottie-player  src="https://assets1.lottiefiles.com/packages/lf20_MeqoKT7pCm.json" mode="bounce" background="transparent"  speed="1"  style="width: 100%;height: 100%;"  loop  autoplay></lottie-player>
+    <!-- <lottie-player  src="https://assets1.lottiefiles.com/packages/lf20_MeqoKT7pCm.json" mode="bounce" background="transparent"  speed="1"  loop  autoplay></lottie-player> --> -->
   </div>
  
   <div class="card">
@@ -20,13 +20,10 @@
       <% itemAdded.forEach((item) => { %>
         <form action="/delete" method="post">
           <div class="displayItem">
-            <input id="check" class="checkbox" name="itemDelete" type="checkbox" onchange="this.form.submit()" value=<%= item.id %>> <label for="check"><span><%= item.name %></span></label>
+            <input id=" <%= item.id %> " class="checkbox" name="itemDelete" type="checkbox" onchange="this.form.submit()" value=<%= item.id %>> <label for=" <%= item.id %> "><span><%= item.name %></span></label>
             <!-- this is hidden  -->
             <input type="hidden" name="deleteItem" value=<%= dayToday %>  > 
-
           </div>
-         
-
         </form>
       <% }) %>
 
