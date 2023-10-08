@@ -3,7 +3,7 @@ const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const URL = process.env.URL;
+const URL = process.env.MONGO_URL;
 mongoose.connect(URL);
 
 
