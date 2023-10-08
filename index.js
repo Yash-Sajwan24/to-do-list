@@ -2,11 +2,10 @@ const express = require("express");
 const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require("dotenv").config();
+const URL = process.env.URL;
+mongoose.connect(URL);
 
-// const date = require(__dirname + '/getdate.js');
-// mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
-// mongoose.connect("mongodb+srv://yashsajwan12345:yashsajwan@cluster0.if6qlcb.mongodb.net/todolistDB");
-mongoose.connect("mongodb+srv://yashsajwan12345:LoYgPGFhtXfQqOxg@cluster0.if6qlcb.mongodb.net/todolistDB");
 
 
 const app = express();
@@ -127,6 +126,6 @@ app.post("/", function (req, res) {
   }
 });
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT, function () {
   console.log("the server is running on port 3000");
 });
