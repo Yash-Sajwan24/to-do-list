@@ -19,8 +19,9 @@
     <div class="container">
       <% itemAdded.forEach((item) => { %>
         <form action="/delete" method="post">
-          <div class="displayItem">
-            <input id=" <%= item.id %> " class="checkbox" name="itemDelete" type="checkbox" onchange="this.form.submit()" value=<%= item.id %>> <label for=" <%= item.id %> "><span><%= item.name %></span></label>
+          <div class="displayItem"> 
+            <button class="delbtn" id=" <%= item.id %> " name="itemDelete"   onclick="this.form.submit()"  value=<%= item.id %>>❌</button>
+            <label for=" <%= item.id %> "><span><%= item.name %></span></label>
             <!-- this is hidden  -->
             <input type="hidden" name="deleteItem" value=<%= dayToday %>  > 
           </div>
